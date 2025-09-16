@@ -1,0 +1,993 @@
+@font-face {
+  font-family: "AnsaniOraliaDemo-JpdDn";
+  src: url(../fonts/AnsaniOraliaDemo-JpdDn.ttf) format("truetype");
+}
+/*
+/////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////SITE WIDE STYLING////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+*/
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  line-height: 1.6;
+}
+
+/* Header + Navbar */
+header {
+  background: #ccd5ae;
+  padding: 1rem 2rem;
+  position: relative;
+}
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-container .logo img {
+  height: 40px;
+}
+.menu-toggle {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  display: block;
+}
+nav {
+  display: none;
+}
+nav.active {
+  display: block;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding-top: 1rem;
+}
+nav a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+nav a.active {
+  text-decoration: double underline;
+}
+main {
+  flex: 1;
+  padding: 1.5em 1rem;
+}
+
+/* Footer */
+footer {
+  width: 100%;
+  background: #ccd5ae;
+  color: black;
+  text-align: center;
+  padding: 1.5rem 2rem;
+  margin-top: auto;
+}
+.social-media {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+.social-media img {
+  width: 25px;
+  height: 25px;
+}
+.social-media a:hover {
+  opacity: 0.7;
+}
+
+/*
+/////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////// INDEX PAGE //////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+*/
+/* Hero Section */
+.hero-image {
+  margin: 0;
+}
+.hero-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.homeText {
+  position: relative;
+  font-size: large;
+  text-align: justify;
+  background: #e9edc9;
+  margin-top: 2rem;
+  margin-bottom: 2em;
+  padding: 2rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  line-height: 1.6;
+}
+.homeText::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-top: 3px solid black;
+  border-left: 3px solid black;
+}
+.homeText::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  border-bottom: 3px solid black;
+  border-right: 3px solid black;
+}
+.homeHeading {
+  text-align: center;
+  font-size: x-large;
+  margin: 5rem 0rem 2rem 0rem;
+}
+.homeCardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 2.5em 0;
+}
+.homeCard {
+  background: white;
+  width: 90%;
+  max-width: 350px;
+  padding: 0.5rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.homeCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+.homeCard img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+  display: block;
+}
+.homeContent {
+  max-height: 0;
+  opacity: 0;
+  padding: 0 1rem;
+  text-align: center;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+.homeCard.active {
+  transform: scale(1.03);
+}
+.homeCard.active .homeContent {
+  opacity: 1;
+  padding: 1rem 1rem;
+}
+.homeContent h2 {
+  font-size: 1.8em;
+}
+.homeContent h3 {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+.homeContent p {
+  font-size: 0.9rem;
+  text-align: justify;
+  color: #555;
+  line-height: 1.4;
+  padding-bottom: 1em;
+}
+.homeContent a {
+  text-decoration: none;
+  font-size: small;
+  color: black;
+  padding-bottom: 2rem;
+}
+.homeContent a:hover {
+  text-decoration: underline;
+  font-size: small;
+  text-decoration-color: #6b705c;
+  text-decoration-thickness: 2px;
+  padding-bottom: 2rem;
+}
+
+/*
+/////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////// PRODUCT PAGE /////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+*/
+/* ChatBot Styling - no changes here */
+#chat-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #a5a58d;
+  color: white;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+/* Chat container (hidden by default) */
+#chat-container {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 300px;
+  height: 400px;
+  border: 1px solid black;
+  border-radius: 10px;
+  display: none;
+  flex-direction: column;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  z-index: 1000;
+}
+#chat-header {
+  background: #6b705c;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#chat-header button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+#messages {
+  flex: 1;
+  padding: 10px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+#input-container {
+  background: #6b705c;
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  border-top: 1px solid #ccc;
+}
+#input {
+  flex: 1;
+  padding: 5px;
+}
+#send-button {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+#send-button:hover {
+  background: #ccd5ae;
+}
+.user-message {
+  background-color: #ccd5ae;
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 5px;
+}
+.bot-message {
+  background-color: #a5a58d;
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+/* Mood Tracker */
+.mood-wrapper {
+  margin: 0;
+  padding: 0;
+  height: auto; /* Changed to auto to allow it to grow */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: 400% 400%;
+  background-image: linear-gradient(135deg, #74ebd5, #acb6e5);
+  animation: gradientAnimation 10s ease infinite;
+  border-radius: 15px;
+}
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.mood-container {
+  width: 90%;
+  max-width: 600px;
+  background: #fff;
+  padding: 1.5em; /* Adjusted padding */
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.6s ease;
+  margin-top: 10vh; /* Added margin to prevent being directly on top of the hero image */
+  margin-bottom: 10vh; /* Added margin for spacing at the bottom */
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.mood-container h1 {
+  font-size: 1.8em; /* Adjusted font size */
+  margin-bottom: 10px;
+  color: #333;
+}
+.mood-container p {
+  font-size: 1em; /* Adjusted font size */
+  color: #666;
+}
+.mood-selector {
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.mood-btn {
+  font-size: 2.2em;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 0 10px;
+  transition: transform 0.2s, filter 0.2s;
+}
+.mood-btn:hover,
+.mood-btn.selected {
+  transform: scale(1.25);
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.2));
+}
+#note {
+  width: 100%;
+  height: 100px;
+  margin: 20px 0;
+  padding: 12px;
+  font-size: 1em;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s;
+}
+#note:focus {
+  outline: none;
+  border-color: #74ebd5;
+}
+#save-btn {
+  padding: 12px 35px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  background: linear-gradient(135deg, #6b705c, #ccd5ae);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  transition: background 0.3s, transform 0.2s;
+}
+#save-btn:hover {
+  background: linear-gradient(135deg, #ccd5ae, #6b705c);
+  transform: scale(1.05);
+}
+.mood-container h2 {
+  margin-top: 30px;
+  color: #333;
+}
+#today-mood {
+  margin-top: 20px;
+  font-size: 2em;
+}
+#save-message {
+  margin-top: 20px;
+  font-size: 1.1em;
+  color: green;
+}
+.hidden {
+  display: none;
+}
+.mood-wrapper.happy {
+  background-image: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+}
+.mood-wrapper.sad {
+  background-image: linear-gradient(135deg, #74ebd5, #acb6e5);
+}
+.mood-wrapper.angry {
+  background-image: linear-gradient(135deg, #ff758c, #ff7eb3);
+}
+.mood-wrapper.tired {
+  background-image: linear-gradient(135deg, #757f9a, #d7dde8);
+}
+.mood-wrapper.excited {
+  background-image: linear-gradient(135deg, #fce38a, #f38181);
+}
+
+/* User Benefits */
+.user-benefits {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+.user-benefits h2 {
+  text-align: center;
+  font-size: x-large;
+  margin: 5rem 0rem 2rem 0rem;
+}
+.benefits-list {
+  text-align: left;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+}
+.benefit-card {
+  background: #e9edc9;
+  border-radius: 15px;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+.benefit-card b {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+/*
+/////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////// SERVICE PAGE /////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+*/
+/* Cards */
+.service-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  margin-top: 5%;
+}
+.card {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  background: #e9edc9;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  padding: 2rem 4rem;
+  width: 90%;
+  max-width: 350px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+}
+.card h3 {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+}
+.card p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.4;
+  padding-bottom: 1rem;
+}
+.card .price {
+  font-weight: bold;
+  color: #6b705c;
+  text-decoration: underline;
+  text-decoration-color: #6b705c;
+  text-decoration-thickness: 2px;
+  justify-self: center;
+}
+
+/* Modal styling */
+.popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.popup-content {
+  background: #e9edc9;
+  padding: 1.5rem;
+  border-radius: 12px;
+  max-width: 90%;
+  text-align: center;
+  position: relative;
+}
+.popup-content h2 {
+  margin-top: 0;
+}
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* Daily Meditations */
+#meditationContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem auto;
+  text-align: center;
+}
+#meditationCircle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #6b705c;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 20px auto;
+  transition: background-color 1s ease;
+}
+.meditation_btn,
+#meditationMode {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #fff;
+  color: #333;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 10px;
+}
+.meditation_btn:hover {
+  text-decoration: underline;
+  text-decoration-color: #6b705c;
+  text-decoration-thickness: 2px;
+}
+#timer {
+  margin-top: 20px;
+  font-size: 1.2rem;
+}
+
+/* AI Coach */
+#coachStep {
+  max-width: 90%;
+  margin: 0 auto;
+  font-size: 1rem;
+  color: black;
+  text-align: center;
+  line-height: 1.6;
+  padding: 1rem auto;
+}
+#nextStepBtn {
+  margin-top: 1rem;
+  padding: 0.5rem 2rem;
+  background: #6b705c;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+#nextStepBtn:hover {
+  background: #ccd5ae;
+  color: black;
+}
+
+/* Self Care */
+#routineApp {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+#routineApp h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  color: #333;
+  border-bottom: 1px solid #ccd5ae;
+  padding-bottom: 0.3rem;
+}
+#routineApp input[type="text"] {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+#routineApp button {
+  padding: 0.5rem 1rem;
+  background: #6b705c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+#routineApp button:hover {
+  background: #ccd5ae;
+  color: black;
+}
+#routineList {
+  list-style: none;
+  padding: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  border-top: 1px solid #ccc;
+  margin-top: 0.5rem;
+}
+#routineList li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+#routineList li input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+#routineList li span {
+  font-size: 1rem;
+  flex: 1;
+}
+
+/*
+/////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////// CONTACT PAGE /////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+*/
+/* Contact Form */
+.contact-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  min-height: 70vh;
+  gap: 0;
+  overflow: hidden;
+  background: #e9edc9;
+  border-radius: 5px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.contact-page-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-top: 3px solid black;
+  border-left: 3px solid black;
+}
+.contact-page-wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  border-bottom: 3px solid black;
+  border-right: 3px solid black;
+}
+.contactForm {
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.contactForm form {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.contactForm input,
+textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+.contactForm button.submit {
+  padding: 0.8rem;
+  background: #6b705c;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.contactForm button.submit:hover {
+  background: #ccd5ae;
+  color: black;
+}
+
+/* FAQ */
+.FAQ-section {
+  width: 100%;
+  padding: 2rem;
+  margin-top: 1.5em;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.faq {
+  border-bottom: 1px solid #ccc;
+}
+.faq button {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 1rem 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+.faq-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  padding-left: 0.5rem;
+  font-size: small;
+  text-align: justify;
+  margin-bottom: 0.5rem;
+}
+.faq.active .faq-content {
+  max-height: 200px;
+}
+
+/*
+/////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////// BLOG PAGE ////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+*/
+.blog-wrapper h1 {
+  margin: 0;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.blog-post {
+  text-align: justify;
+  background: #e9edc9;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.blog-post h2 {
+  margin-top: 0;
+}
+.meta {
+  font-size: 0.9rem;
+  color: gray;
+}
+.blog-post a {
+  padding-left: 0.5rem;
+  text-decoration: none;
+  color: grey;
+}
+.blog-post a:hover {
+  color: black;
+  text-decoration: underline;
+  text-decoration-color: #6b705c;
+  text-decoration-thickness: 2px;
+}
+
+/*
+/////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////// COMMUNITY PAGE ///////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+*/
+#communityPage {
+  background-image: url("../images/communityBackground.svg");
+  background-size: cover;
+  background-color: white;
+  background-blend-mode: luminosity;
+}
+.community-container {
+  position: relative;
+  max-width: 1000px;
+  /* Default styles for small screens */
+  padding: 3rem 1.5rem;
+  margin: 2rem 1.5rem; /* New: Increased margin for smaller screens */
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background: #e9edc9;
+  border-radius: 5px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.community-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-top: 3px solid black;
+  border-left: 3px solid black;
+}
+.community-container::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  border-bottom: 3px solid black;
+  border-right: 3px solid black;
+}
+.forum ul {
+  list-style: none;
+  padding: 0;
+}
+.forum li {
+  background: white;
+  padding: 0.8rem;
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.post-form form {
+  display: flex;
+  flex-direction: column;
+}
+.post-form input,
+.post-form textarea {
+  margin-bottom: 1rem;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.post-form button {
+  padding: 0.8rem;
+  border: none;
+  background: #6b705c;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.post-form button:hover {
+  background: #ccd5ae;
+  color: black;
+}
+
+/*
+/////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////SITE WIDE RESPONSIVENESS/////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+*/
+@media (min-width: 769px) {
+  header {
+    padding: 2rem;
+  }
+  .header-container {
+    justify-content: flex-end;
+  }
+  .header-container .logo {
+    display: none;
+  }
+  .menu-toggle {
+    display: none;
+  }
+  nav {
+    display: block;
+  }
+  nav ul {
+    flex-direction: row;
+    padding-top: 0;
+    justify-content: flex-end;
+  }
+  main {
+    margin: 3em 10em;
+    padding: initial;
+  }
+  .homeCardContainer {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: stretch;
+  }
+  .homeCard {
+    width: 250px;
+    max-width: none;
+  }
+  .benefits-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .service-container {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .card {
+    width: 300px;
+    max-width: none;
+  }
+  .contact-page-wrapper {
+    flex-direction: row;
+  }
+  .contactForm {
+    width: 60%;
+  }
+  .FAQ-section {
+    width: 40%;
+  }
+  .mood-selector {
+    flex-direction: row;
+    justify-content: center;
+    gap: initial;
+  }
+  .community-container {
+    padding: 3rem 1.5rem;
+    margin: 2rem auto;
+  }
+}

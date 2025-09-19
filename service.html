@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>MindMate AI Services: Guided Meditations, AI Coaching & Self-Care</title>
+    <meta
+      name="description"
+      content="Explore MindMate AI's services, including daily guided meditations for stress relief, a compassionate AI Coach for guidance, and custom self-care routine planners to help you achieve your wellness goals."
+    />
+    <meta
+      name="keywords"
+      content="guided meditation, AI coach, AI mental health, self-care routines, self-care goals, breathing exercises, stress relief, wellness services, MindMate AI, daily routine planner"
+    />
+
+    <link rel="icon" href="images/MindMateAI_Logo.svg" type="image/svg+xml" />
+    <link rel="icon" href="images/MindMateAI_Logo.png" type="image/png" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <a href="index.html" class="logo">
+          <img src="./images/MindMateAI_Logo.svg" alt="MindMate AI Logo" />
+        </a>
+        <button
+          class="menu-toggle"
+          aria-controls="main-navigation"
+          aria-expanded="false"
+        >
+          &#9776;
+        </button>
+      </div>
+    <nav id="main-navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="product.html">Products</a></li>
+          <li><a href="service.html" class="active">Services</a></li>
+          <li><a href="newsletter.html">News</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="community.html">Community</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="service-container">
+        <div class="card" onclick="openPopUp('popUp1')">
+          <h3>Daily Meditations</h3>
+          <p>Take a minute to relax and breath with us.</p>
+          <p class="price">R50,00</p>
+        </div>
+        <div class="card" onclick="openPopUp('popUp2')">
+          <h3>AI Coach</h3>
+          <p>Talk with your buddy for some guidence and conversation.</p>
+          <p class="price">R150,00</p>
+        </div>
+        <div class="card" onclick="openPopUp('popUp3')">
+          <h3>Self-Care Routines</h3>
+          <p>Set your Goals to help with the madness.</p>
+          <p class="price">R80,00</p>
+        </div>
+      </div>
+
+      <div id="popUp1" class="popup">
+        <div class="popup-content">
+          <div id="meditationContainer">
+            <span class="close-btn" onclick="closePopUp('popUp1')"
+              >&times;</span
+            >
+            <h2>Daily Meditations</h2>
+            <h3>Choose a breathing technique and follow the guide:</h3>
+
+            <select id="meditationMode">
+              <option value="basic">Basic Relaxation (4-2-4)</option>
+              <option value="box">Box Breathing (4-4-4-4)</option>
+              <option value="478">4-7-8 Breathing</option>
+            </select>
+
+            <div id="meditationCircle">Ready</div>
+
+            <button class="meditation_btn" onclick="startMeditation()">
+              Start
+            </button>
+            <button class="meditation_btn" onclick="stopMeditation()">
+              Stop
+            </button>
+
+            <div id="timer">Time: 0s</div>
+          </div>
+        </div>
+      </div>
+      <div id="popUp2" class="popup">
+        <div class="popup-content">
+          <span class="close-btn" onclick="closePopUp('popUp2')">&times;</span>
+          <h2>AI Coach</h2>
+          <p id="coachStep">Welcome! Ready to learn how to use your product?</p>
+          <button id="nextStepBtn">Next</button>
+        </div>
+      </div>
+      <div id="popUp3" class="popup">
+        <div class="popup-content">
+          <span class="close-btn" onclick="closePopUp('popUp3')">&times;</span>
+          <div id="routineApp">
+            <h2>Self-Care Routines</h2>
+            <h3>Create a New Routine</h3>
+            <input
+              type="text"
+              id="newRoutineInput"
+              placeholder="Enter routine name"
+            />
+            <button id="addRoutineBtn">Add Routine</button>
+
+            <h3>My Routines</h3>
+            <ul id="routineList"></ul>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <ul class="social-media">
+        <li>
+          <a href="https://www.facebook.com/" target="_blank"
+            ><img src="./images/facebookLogo.svg" alt="Facebook"
+          /></a>
+        </li>
+        <li>
+          <a href="https://x.com/" target="_blank"><img src="./images/Xlogo.svg" alt="X" /></a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/" target="_blank"
+            ><img src="./images/instaLogo.svg" alt="Instagram"
+          /></a>
+        </li>
+      </ul>
+      <p>&copy; 2025 Megan Johnston | All rights reserved</p>
+    </footer>
+
+    <script src="./js/cards.js"></script>
+    <script src="./js/meditation.js"></script>
+    <script src="./js/aiCoach.js"></script>
+    <script src="./js/selfCare.js"></script>
+    <script src="./js/burgerMenu.js"></script>
+  </body>
+</html>
